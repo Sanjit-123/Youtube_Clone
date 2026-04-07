@@ -61,42 +61,41 @@ export default function Register() {
         </div>
 
         <h1 className="auth-title">Create account</h1>
-        <p className="auth-subtitle">Join YTClone and start sharing videos</p>
+        <p className="auth-subtitle">to continue to YouTube</p>
 
         {error && <div className="form-error">{error}</div>}
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label" htmlFor="reg-username">Username</label>
             <input id="reg-username" name="username" type="text" className="form-input"
-              placeholder="coolcreator42" value={form.username} onChange={handleChange}
+              placeholder="Username" value={form.username} onChange={handleChange}
               minLength={3} maxLength={30} autoComplete="username" />
           </div>
           <div className="form-group">
-            <label className="form-label" htmlFor="reg-email">Email</label>
             <input id="reg-email" name="email" type="email" className="form-input"
-              placeholder="you@example.com" value={form.email} onChange={handleChange} autoComplete="email" />
+              placeholder="Email or phone" value={form.email} onChange={handleChange} autoComplete="email" />
           </div>
           <div className="form-group">
-            <label className="form-label" htmlFor="reg-password">Password</label>
             <input id="reg-password" name="password" type="password" className="form-input"
-              placeholder="••••••••" value={form.password} onChange={handleChange}
+              placeholder="Password" value={form.password} onChange={handleChange}
               minLength={6} autoComplete="new-password" />
           </div>
           <div className="form-group">
-            <label className="form-label" htmlFor="reg-confirm">Confirm Password</label>
             <input id="reg-confirm" name="confirmPassword" type="password" className="form-input"
-              placeholder="••••••••" value={form.confirmPassword} onChange={handleChange}
+              placeholder="Confirm password" value={form.confirmPassword} onChange={handleChange}
               minLength={6} autoComplete="new-password" />
           </div>
-          <button type="submit" className="form-submit" disabled={loading} id="register-submit-btn">
-            {loading ? 'Creating account...' : 'Create Account'}
-          </button>
+          
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '30px' }}>
+            <Link to="/login" style={{ color: '#3ea6ff', fontSize: '14px', fontWeight: '500' }}>Sign in instead</Link>
+            <button type="submit" disabled={loading} id="register-submit-btn" style={{
+              background: '#3ea6ff', color: '#000', border: 'none', borderRadius: '40px',
+              padding: '0 24px', height: '36px', fontSize: '14px', fontWeight: '500', cursor: 'pointer'
+            }}>
+              {loading ? 'Wait...' : 'Next'}
+            </button>
+          </div>
         </form>
-
-        <div className="auth-switch">
-          Already have an account? <Link to="/login">Sign in</Link>
-        </div>
       </div>
     </div>
   )

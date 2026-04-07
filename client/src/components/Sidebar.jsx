@@ -43,7 +43,10 @@ export default function Sidebar({ isOpen, isMobile, onClose }) {
           key={item.to}
           to={item.to}
           end={item.end}
-          className={({ isActive }) => `sidebar-item${isActive && item.end ? ' active' : ''}`}
+          className={({ isActive }) => `sidebar-item${isActive ? ' active' : ''}`}
+          style={{
+            background: 'transparent',
+          }}
           onClick={() => isMobile && onClose()}
         >
           {item.icon}

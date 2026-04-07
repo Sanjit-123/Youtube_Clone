@@ -27,7 +27,7 @@ export default function VideoCard({ video }) {
           <span className="video-card-duration">{formatDuration(duration)}</span>
         )}
         {/* Hover overlay gradient */}
-        <div className="video-card-hover-overlay" />
+        <div className="video-card-hover-overlay" style={{ borderRadius: 'var(--radius)' }} />
       </div>
 
       <div className="video-card-info">

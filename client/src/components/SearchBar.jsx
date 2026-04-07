@@ -87,12 +87,18 @@ export default function SearchBar() {
         <input
           ref={inputRef}
           type="text"
-          className="glass-input search-input-2025"
+          className="search-input-2025"
           style={{
-            borderRadius: '20px 0 0 20px',
-            borderRight: 'none',
+            flex: 1,
+            background: 'var(--bg)',
+            border: '1px solid var(--border)',
+            borderRadius: '40px 0 0 40px',
+            padding: '0 16px',
             height: 40,
-            transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+            fontSize: 16,
+            color: 'var(--text)',
+            outline: 'none',
+            boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.1)',
           }}
           placeholder="Search..."
           value={query}
@@ -104,14 +110,19 @@ export default function SearchBar() {
         />
         <button
           type="submit"
-          className="glass-btn"
+          className="search-btn-2025"
           style={{
-            borderRadius: '0 20px 20px 0',
+            background: 'var(--surface2)',
+            border: '1px solid var(--border)',
             borderLeft: 'none',
+            borderRadius: '0 40px 40px 0',
             height: 40,
-            width: 56,
-            padding: 0,
-            flexShrink: 0,
+            width: 64,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'background-color 0.2s',
           }}
           aria-label="Search"
         >

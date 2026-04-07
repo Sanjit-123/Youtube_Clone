@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { PlayerProvider } from './context/PlayerContext'
+import { ThemeProvider } from './context/ThemeContext'
 import { ToastProvider } from './components/Toast'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import MiniPlayer from './components/MiniPlayer'
+import SplashAnimation from './components/SplashAnimation'
 import Home from './pages/Home'
 import Watch from './pages/Watch'
 import Search from './pages/Search'
@@ -40,6 +42,7 @@ function AppLayout() {
 
   return (
     <BrowserRouter>
+      <SplashAnimation />
       <Navbar onToggleSidebar={toggleSidebar} />
       <div className="app-body">
         <Sidebar isOpen={sidebarOpen} isMobile={isMobile} onClose={() => setSidebarOpen(false)} />
@@ -69,11 +72,13 @@ function AppLayout() {
 export default function App() {
   return (
     <AuthProvider>
-      <PlayerProvider>
-        <ToastProvider>
-          <AppLayout />
-        </ToastProvider>
-      </PlayerProvider>
+      <ThemeProvider>
+        <PlayerProvider>
+          <ToastProvider>
+            <AppLayout />
+          </ToastProvider>
+        </PlayerProvider>
+      </ThemeProvider>
     </AuthProvider>
   )
 }
